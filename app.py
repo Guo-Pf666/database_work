@@ -8,7 +8,7 @@ from typing import List, Dict, Any, Optional
 import markdown
 
 # 导入所有自定义模块
-from config import MASTER_DB_CONFIG, TARGET_DB_NAME, ALLOWED_ROLES
+from config import MASTER_DB_CONFIG, TARGET_DB_NAME, ALLOWED_ROLES, FLASK_SECRET_KEY
 from database import Database
 from auth import AuthManager
 from permission import PermissionChecker
@@ -16,7 +16,7 @@ from llm import LLMClient
 
 app = Flask(__name__)
 # 确保设置一个安全的密钥用于session管理
-app.secret_key = '***REMOVED***' 
+app.secret_key = FLASK_SECRET_KEY 
 
 # 初始化 LLM 客户端和用户表
 llm_client = LLMClient()
